@@ -1,0 +1,19 @@
+{
+  "name": "dev-tinder-backend",
+  "version": "1.0.0",
+  "description": "backend tinder for devs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Vuyyuru Jahnavi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
