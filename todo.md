@@ -1,3 +1,4 @@
+<!-- Episode 03 -->
 - Create a repository
 - Initialize the repository
 - node_modules, package.json, package-lock.json'
@@ -9,3 +10,13 @@
 - What are dependencies in package.json
 - What is the use of '-g' while npm install
 - Difference between caret and tilda (^ Vs ~)
+
+<!-- Episode 04 -->
+- Initialize Git in your repository (git init)
+- Ignore node_modules (.gitignnore)
+- Create a remote repo on github
+- Push all code to remote origin
+- Play with routes and route extensions Ex: /hello, / , /hello/2, /xyz
+- Order of the routes matter a lot
+- Install Postman application and make a workspace and collection and then test api call
+- Write logic to handle GET, POST, PATCH, DELETE API calls and test them on postman
