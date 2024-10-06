@@ -2,29 +2,53 @@ const express = require("express");
 
 const app = express();
 
-const { adminAuth, userAuth } = require('./middlewares/auth')
+// app.use('/', (err, req, res, next) => {
+//   if(err) {
+//     // You can log the error to see in logs for our reference
+//     res.status(500).send('Something went wrong')
+//   }
+// })
 
-app.use('/admin', adminAuth)
-
-app.get("/admin/getAllData", (req, res, next) => {
-  res.send("All data sent");
-});
-
-app.get("/admin/deleteUser", (req, res, next) => {
-  res.send("Deleted a user");
-});
-
-app.post('/user/login', (req, res, next) => {
-  res.send('User logged in successfully!')
+app.get('/getUserData', (req, res, next) => {
+  // try {
+    throw new Error('qwertyy')
+    res.send('User data sent')
+  // }
+  // catch(err) {
+  //   res.status(500).send('Some error contact support team')
+  // }
 })
 
-app.get('/user', userAuth, (req, res, next) => {
-  res.send('User data sent')
+app.use('/', (err, req, res, next) => {
+  if(err) {
+    // You can log the error to see in logs for our reference
+    res.status(500).send('Something went wrong')
+  }
 })
 
-app.all('/contact', (req, res) => {
-  res.send(`Handling ${req.method} request at /contact`);
-});
+// const { adminAuth, userAuth } = require('./middlewares/auth')
+
+// app.use('/admin', adminAuth)
+
+// app.get("/admin/getAllData", (req, res, next) => {
+//   res.send("All data sent");
+// });
+
+// app.get("/admin/deleteUser", (req, res, next) => {
+//   res.send("Deleted a user");
+// });
+
+// app.post('/user/login', (req, res, next) => {
+//   res.send('User logged in successfully!')
+// })
+
+// app.get('/user', userAuth, (req, res, next) => {
+//   res.send('User data sent')
+// })
+
+// app.all('/contact', (req, res) => {
+//   res.send(`Handling ${req.method} request at /contact`);
+// });
 
 // app.get(
 //   "/user",
