@@ -1,12 +1,88 @@
+const express = require("express");
 
-const express = require('express')
+const app = express();
 
-const app = express()
+const { adminAuth, userAuth } = require('./middlewares/auth')
 
-app.get('/user/:userId/:name/:password', (req, res) => {
-  console.log(req.params)
-  res.send('Route handled successfully') 
+app.use('/admin', adminAuth)
+
+app.get("/admin/getAllData", (req, res, next) => {
+  res.send("All data sent");
+});
+
+app.get("/admin/deleteUser", (req, res, next) => {
+  res.send("Deleted a user");
+});
+
+app.post('/user/login', (req, res, next) => {
+  res.send('User logged in successfully!')
 })
+
+app.get('/user', userAuth, (req, res, next) => {
+  res.send('User data sent')
+})
+
+app.all('/contact', (req, res) => {
+  res.send(`Handling ${req.method} request at /contact`);
+});
+
+// app.get(
+//   "/user",
+//   (req, res, next) => {
+//     next();
+//   },
+//   (req, res, next) => {
+//     res.send("Response 1 !!");
+//   }
+// );
+
+// app.get("/user", (req, res, next) => {
+//   console.log("Handling the route user 2 !!");
+//   // res.send("Response 2 !!");
+//   next()
+// });
+
+// app.get("/user", (req, res, next) => {
+//   console.log("Handling the route user 1 !!");
+//   // res.send("Response 1 !!");
+//   next()
+// });
+
+// All below are same
+// app.get('/route', rH1, rH2, rH3, rH4, rH5)
+// app.get('/route', [rH1, rH2, rH3, rH4, rH5])
+// app.get('/route', rH1, [rH2, rH3], rH4, rH5)
+
+// app.get(
+//   "/user",
+//   [
+//     (req, res, next) => {
+//       console.log("Handling the route user 1 !!");
+//       next();
+//       // res.send("Response 1 !!");
+//     },
+//     (req, res, next) => {
+//       console.log("Handling the route user 2 !!");
+//       // res.send("Response 2 !!");
+//       next();
+//     },
+//   ],
+//   (req, res, next) => {
+//     console.log("Handling the route user 3 !!");
+//     // res.send("Response 3 !!");
+//     next();
+//   },
+//   (req, res, next) => {
+//     console.log("Handling the route user 4 !!");
+//     res.send("Response 4 !!");
+//     // next()
+//   }
+// );
+
+// app.get('/user/:userId/:name/:password', (req, res) => {
+//   console.log(req.params)
+//   res.send('Route handled successfully')
+// })
 
 // app.get('/user', (req, res) => {
 //   console.log(req.query)
@@ -82,5 +158,5 @@ app.get('/user/:userId/:name/:password', (req, res) => {
 // })
 
 app.listen(3000, () => {
-  console.log('Server is successfully listening on port 3000')
-})
+  console.log("Server is successfully listening on port 3000");
+});
