@@ -74,3 +74,10 @@
 - Install validator library
 - Explore validator library functions and use validator functions for password, email, Url
 - Never trust request body
+
+<!-- Episode 09 -->
+- Validate data in signup API
+- Install bcrypt package
+- Create password hash using bcrypt.hash and save the user with encrypted password
+- Create login API
+- Compare passwords and throw errors if email or password is invalid
