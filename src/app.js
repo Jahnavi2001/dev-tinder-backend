@@ -91,25 +91,28 @@ app.patch("/user", async (req, res) => {
   try {
     // const user = await User.findByIdAndUpdate({ _id: userId }, data);
     // const user = await User.findByIdAndUpdate(userId, { $set: data });
-    const user = await User.findByIdAndUpdate(userId, data , { returnDocument: 'after'});
-    console.log("🚀 ~ app.patch ~ user:", user)
+    const user = await User.findByIdAndUpdate(userId, data, {
+      returnDocument: "after",
+      runValidators: true,
+    });
+    console.log("user:", user);
+    res.send("User updated successfully");
+  } catch (err) {
+    res.status(400).send("Update Failed: " + err.message);
+  }
+});
+
+// Update a user using email
+app.patch("/userByEmail", async (req, res) => {
+  const emailId = req.body.emailId;
+  const data = req.body;
+  try {
+    const user = await User.findOneAndUpdate({ emailId }, data);
     res.send("User updated successfully");
   } catch (err) {
     res.status(400).send("Something went wrong: " + err.message);
   }
 });
-
-// Update a user using email
-app.patch('/userByEmail', async(req, res) => {
-  const emailId = req.body.emailId
-  const data = req.body
-  try {
-    const user = await User.findOneAndUpdate({emailId}, data );
-    res.send("User updated successfully");
-  } catch (err) {
-    res.status(400).send("Something went wrong: " + err.message);
-  } 
-})
 
 connectDB()
   .then(() => {
