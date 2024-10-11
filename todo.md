@@ -81,3 +81,16 @@
 - Create password hash using bcrypt.hash and save the user with encrypted password
 - Create login API
 - Compare passwords and throw errors if email or password is invalid
+
+<!-- Episode 10 -->
+- Install npm cookie-parser library
+- Just send a dummy token to user in Login API
+- Create GET /profile API and check if you get the cookie back
+- Install npm jsonwebtoken library
+- In login API, after email and password validation create a JWT token and send it to user in cookies
+- Read the cookies inside your profile API and find the logged in user.
+- Create userAuth Middleware
+- Add the userAuth middleware in profile API and new sendConnectionRequest API
+- Set the expiry of JWT token and cookies to 7 days
+- Create userSchema method to getJWT()
+- Create userSchema method to compare password(passwordInputByUser)
