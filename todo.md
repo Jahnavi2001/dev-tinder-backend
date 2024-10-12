@@ -94,3 +94,30 @@
 - Set the expiry of JWT token and cookies to 7 days
 - Create userSchema method to getJWT()
 - Create userSchema method to compare password(passwordInputByUser)
+
+
+<!-- Episode 11 -->
+- Explore tinder API's
+- Create a list of all API's you can think of in DevTinder
+- Group multiple routes under respective routers
+- Read documentation for express.Router
+- Create routes folder for managing auth, profile, request routers
+- Create authRouter, profileRouter, requestRouter
+- Import these 3 routers in app.js
+- Create POST /logout API
+- Create PATCH /profile/edit API
+- Create PATCH /profile/password API => Forgot password API
+- Make sure you validate data in every POST, PATCH API's
+
+<!-- Episode 12 -->
+- Create connection request schema
+- Send connection request API
+- Proper validation of data
+- Think about all corner cases
+- $or query - https://www.mongodb.com/docs/manual/reference/operator/query-logical/
+- schema.pre("save") function
+- Read more about indexes in MongoDB
+- Read this article about compound indexes - https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/
+- Why do we need index in DB?
+- What is the advantages and disadvantages of creating index.
+- ALWAYS THINK ABOUT CORNER CASES
