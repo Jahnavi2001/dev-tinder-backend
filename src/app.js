@@ -8,6 +8,13 @@ const requestRouter = require("./routes/request");
 const profileRouter = require("./routes/profile");
 const userRouter = require("./routes/user");
 
+const cors = require('cors')
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}))
+
 // Reads JSON request and converts it into the Javascript Object and put JS object back into the request
 app.use(express.json());
 

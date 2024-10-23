@@ -128,3 +128,8 @@
 - Read about ref and populate
 - Create GET /user/requests/received API with all the checks
 - Create GET /user/connections API
+
+<!-- Episode 14 -->
+- Logic for GET user/feed API
+- Explore the $nin, $ne, $or, $and and other query operators
+- Build Pagination for Feed API
